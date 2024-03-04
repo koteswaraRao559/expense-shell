@@ -14,21 +14,25 @@ cp backend.service /etc/systemd/system/backend.service &>>log_file
 echo $?
 
 echo -e "${color} Adding User \e[0m"
-useradd expense &>>log_file
+useradd expense
 echo $?
 
 echo -e "${color} creating a directory \e[0m"
-mkdir /app &>>log_file
+mkdir /app
 echo $?
 
 echo -e "${color} Download Application content  \e[0m"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip &>>log_file
-cd /app &>>log_file
+curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip
+cd /app
 echo -e "${color} Extracting Application content\e[0m"
-unzip /tmp/backend.zip &>>log_file
-echo $?
+unzip /tmp/backend.zip
+if[$? -eq 0]: then
+  echo -e "\e[32m sucess \e[0m"
+else
+  echo -e "\e[33m Failure \e[0m"
+if
 
-cd /app &>>log_file
+cd /app
 echo -e "${color} Download nodejs Dependencies \e[0m"
 npm install &>>log_file
 echo $?
