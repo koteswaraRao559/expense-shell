@@ -3,7 +3,7 @@ color="\e[31m"
 
 echo -e "${color} Disabling Default node.js \e[0m"
 dnf module disable nodejs -y &>>log_file
-if[$? -eq 0]; then
+if[$? -eq 0]:
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
@@ -30,7 +30,7 @@ curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip
 cd /app
 echo -e "${color} Extracting Application content\e[0m"
 unzip /tmp/backend.zip
-if[$? -eq 0]; then
+if[$? -eq 0]:
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
