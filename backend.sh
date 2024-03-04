@@ -22,7 +22,7 @@ mkdir /app &>>log_file
 echo $?
 
 echo -e "${color} Download Application content  \e[0m"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip
+curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip &>>log_file
 cd /app &>>log_file
 echo -e "${color} Extracting Application content\e[0m"
 unzip /tmp/backend.zip &>>log_file
