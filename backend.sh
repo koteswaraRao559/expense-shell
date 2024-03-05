@@ -26,9 +26,10 @@ else
   echo -e "\e[33m Failure \e[0m"
 fi
 
-echo -e "${color} Adding User \e[0m"
+
 id expense &>>log_file
 if [ $? -ne 0 ]; then
+  echo -e "${color} Adding User \e[0m"
   useradd expense &>>log_file
   if [ $? -eq 0 ]; then
     echo -e "\e[32m sucess \e[0m"
@@ -49,7 +50,7 @@ echo -e "${color} Download Application content  \e[0m"
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip
 cd /app
 echo -e "${color} Extracting Application content\e[0m"
-unzip /tmp/backend.zip &>>log_file
+unzip /tmp/backend.zip
 if [ $? -eq 0 ]; then
   echo -e "\e[32m sucess \e[0m"
 else
