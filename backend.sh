@@ -7,7 +7,7 @@ if [ $? -eq 0]; then
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
-if
+fi
 
 echo -e "${color} Enabling & installing Node.js of version 18 \e[0m"
 dnf module enable nodejs:18 -y &>>log_file
@@ -16,7 +16,7 @@ if [ $? -eq 0]; then
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
-iff
+fi
 
 echo -e "${color} Coping backend.service file \e[0m"
 cp backend.service /etc/systemd/system/backend.service &>>log_file
@@ -25,7 +25,7 @@ if [ $? -eq 0]; then
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
-if
+fi
 
 echo -e "${color} Adding User \e[0m"
 id expense &>>log_file
@@ -44,7 +44,7 @@ if [ $? -eq 0]; then
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
-if
+fi
 
 echo -e "${color} Download Application content  \e[0m"
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip
@@ -55,7 +55,7 @@ if [ $? -eq 0]; then
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
-if
+fi
 
 cd /app
 echo -e "${color} Download nodejs Dependencies \e[0m"
@@ -64,7 +64,7 @@ if [ $? -eq 0]; then
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
-if
+fi
 
 echo -e "${color} Installing mysql to load Schema \e[0m"
 dnf install mysql -y &>>log_file
@@ -74,7 +74,7 @@ if [ $? -eq 0]; then
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
-if
+fi
 echo -e "${color} Stating Backend services \e[0m"
 systemctl daemon-reload &>>log_file
 systemctl enable backend &>>log_file
@@ -83,6 +83,6 @@ if [ $? -eq 0]; then
   echo -e "\e[32m sucess \e[0m"
 else
   echo -e "\e[33m Failure \e[0m"
-if
+fi
 
 
