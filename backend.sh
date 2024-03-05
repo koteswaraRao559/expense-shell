@@ -48,6 +48,14 @@ if [ -d /app ]; then
   fi
 fi
 
+echo -e "${color} Delete Old Application content  \e[0m"
+rm -rf /app/* &>>log_file
+if [ $? -eq 0 ]; then
+  echo -e "${color} Success  \e[0m"
+else
+  echo -e "\e[33m Failure \e[0m"
+fi
+
 echo -e "${color} Download Application content  \e[0m"
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip &>>log_file
 if [ $? -eq 0 ]; then
