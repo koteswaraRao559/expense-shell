@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
 fi
 MY_SQL_ROOT_PASSWORD=$1
 
-status-check() {
+status_check() {
   if [ $? -eq 0 ]; then
     echo -e "\e[32m success \e[0m"
   else
