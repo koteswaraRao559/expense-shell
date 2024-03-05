@@ -38,12 +38,14 @@ if [ $? -ne 0 ]; then
   fi
 fi
 
-echo -e "${color} creating a directory \e[0m"
-mkdir /app &>>log_files
-if [ $? -eq 0 ]; then
-  echo -e "\e[32m sucess \e[0m"
-else
-  echo -e "\e[33m Failure \e[0m"
+if [ -d /app ]; then
+  echo -e "${color} creating application directory \e[0m"
+  mkdir /app &>>log_files
+  if [ $? -eq 0 ]; then
+    echo -e "\e[32m sucess \e[0m"
+  else
+    echo -e "\e[33m Failure \e[0m"
+  fi
 fi
 
 echo -e "${color} Download Application content  \e[0m"
