@@ -28,12 +28,15 @@ else
 if
 
 echo -e "${color} Adding User \e[0m"
-useradd expense
-if[ $? -eq 0];then
-  echo -e "\e[32m sucess \e[0m"
-else
-  echo -e "\e[33m Failure \e[0m"
-if
+id expense &>>log_file
+if [ $? -ne 0]; then
+  useradd expense &>>log_file
+  if[ $? -eq 0];then
+    echo -e "\e[32m sucess \e[0m"
+  else
+    echo -e "\e[33m Failure \e[0m"
+  fi
+fi
 
 echo -e "${color} creating a directory \e[0m"
 mkdir /app
