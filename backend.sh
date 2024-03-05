@@ -38,7 +38,7 @@ if [ $? -ne 0 ]; then
   fi
 fi
 
-if [ -d /app ]; then
+if [ ! -d /app ]; then
   echo -e "${color} creating application directory \e[0m"
   mkdir /app &>>log_files
   if [ $? -eq 0 ]; then
