@@ -5,6 +5,8 @@ if [ -z '$1' ]; then
   echo -e password input missing
   exit
 fi
+
+MY_SQL_ROOT_PASSWORD=$1
 echo -e "${color} Disabling Default node.js \e[0m"
 dnf module disable nodejs -y &>>log_file
 if [ $? -eq 0 ]; then
