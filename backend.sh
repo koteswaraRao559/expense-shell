@@ -2,7 +2,7 @@ log_file=/tmp/expense.log
 color="\e[31m"
 
 if [ -z '$1' ]; then
-  echo -e password input missing
+  echo password input missing
   exit
 fi
 
