@@ -20,7 +20,6 @@ fi
 
 echo -e "${color} Coping backend.service file \e[0m"
 cp backend.service /etc/systemd/system/backend.service &>>log_file
-echo $?
 if [ $? -eq 0 ]; then
   echo -e "\e[32m sucess \e[0m"
 else
@@ -39,7 +38,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo -e "${color} creating a directory \e[0m"
-mkdir /app
+mkdir /app &>>log_file
 if [ $? -eq 0 ]; then
   echo -e "\e[32m sucess \e[0m"
 else
