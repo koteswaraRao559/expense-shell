@@ -5,8 +5,8 @@ if [ -z "$1" ]; then
   echo password input missing
   exit
 fi
-
 MY_SQL_ROOT_PASSWORD=$1
+
 echo -e "${color} Disabling Default node.js \e[0m"
 dnf module disable nodejs -y &>>log_file
 if [ $? -eq 0 ]; then
@@ -15,8 +15,15 @@ else
   echo -e "\e[33m Failure \e[0m"
 fi
 
-echo -e "${color} Enabling & installing Node.js of version 18 \e[0m"
+echo -e "${color} Enabling Node.js of version 18 \e[0m"
 dnf module enable nodejs:18 -y &>>log_file
+if [ $? -eq 0 ]; then
+  echo -e "\e[32m success \e[0m"
+else
+  echo -e "\e[33m Failure \e[0m"
+fi
+
+echo -e "${color} installing Node.js of version 18 \e[0m"
 dnf install nodejs -y &>>log_file
 if [ $? -eq 0 ]; then
   echo -e "\e[32m success \e[0m"
