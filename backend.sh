@@ -1,5 +1,4 @@
-log_file=/tmp/expense.log
-color="\e[31m"
+source common.sh
 
 if [ -z "$1" ]; then
   echo password input missing
@@ -7,13 +6,6 @@ if [ -z "$1" ]; then
 fi
 MY_SQL_ROOT_PASSWORD=$1
 
-status_check() {
-  if [ $? -eq 0 ]; then
-    echo -e "\e[32m success \e[0m"
-  else
-    echo -e "\e[33m Failure \e[0m"
-  fi
-}
 
 echo -e "${color} Disabling Default node.js \e[0m"
 dnf module disable nodejs -y &>>log_file
