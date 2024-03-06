@@ -6,5 +6,6 @@ status_check() {
     echo -e "\e[32m success \e[0m"
   else
     echo -e "\e[33m Failure \e[0m"
+    exit 1
   fi
 }
