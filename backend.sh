@@ -60,7 +60,7 @@ status_check
 echo -e "${color} Installing mysql to load Schema \e[0m"
 dnf install mysql -y &>>log_file
 echo -e "${color} Load Schema \e[0m"
-mysql -h mysql-dev.kdevops59.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>log_file
+mysql -h mysql-dev.kdevops59.online -uroot -p${MYSQL_ROOT_PASSWORD} < /app/schema/backend.sql &>>log_file
 status_check
 
 echo -e "${color} Stating Backend services \e[0m"
